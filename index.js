@@ -6,17 +6,25 @@ function handleClick(e) {
 /* End Given Code, don't edit above here...*/
 
 /* Write your implementation of greet() */
-function greet(timeStr){
-  let nowTime = timeStr.split(':');
-  let nowHour = parseInt(nowTime[0]);
-  if (nowHour<12){
-    return "Good Morning";
-  } else if (nowHour>17){
-    return "Good Evening";
+function greet(time) {
+  const hourInString = time.split(":");
+  const hoursInInt = parseInt(hourInString,10);
+
+  if (hoursInInt < 12) {
+    return displayMessage('Good Morning');
   }
-  return "Good Afternoon";
+  else if (hoursInInt >=12 && hoursInInt <= 17){
+    return displayMessage('Good Afternoon');
+  }
+  else {
+  return displayMessage('Good Evening');
+  }
 }
+
+
 /* Write your implementation of displayMessage() */
-function displayMessage(msg){
-  document.getElementById("greeting").innerText = msg;
+function displayMessage(msg) {
+  const element = document.getElementById("greeting");
+  element.innerText = msg;
+  return msg;
 }
